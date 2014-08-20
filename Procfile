@@ -1,0 +1,1 @@
+web:  target/universal/stage/bin/perio -Dconfig.file=conf/application.conf -Dhttp.port=$PORT
