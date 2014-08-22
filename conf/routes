@@ -7,7 +7,8 @@ GET     /                           controllers.Application.index()
 
 
 #Api
-GET     /api/trips/:operation/:viaje/:agencia/:fetchSalida/:terminal/:version   controllers.Api.trip(operation:String,viaje:String,agencia:String,fetchSalida:String,terminal:String,version:String)
+GET     /api/trip controllers.Api.trip()
+
 
 
 

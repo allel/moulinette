@@ -5,10 +5,9 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.List;
 
-@XmlRootElement(name="RESPUESTA" )
+@XmlRootElement(name="RESPUESTA")
 public class Response {
 
-	
 	private String operation ;
 	
 	private Trip trip ; 
@@ -16,8 +15,43 @@ public class Response {
 	private String agency ;
 	
 	private List<Stop> stop ;
-	
-	
+
+    private String update;
+
+    private String error ;
+
+    @XmlElement(name="ORDEN_TRANSPORTE",type=String.class)
+    public List<String> getTransportOrder() {
+        return transportOrder;
+    }
+
+    public void setTransportOrder(List<String> transportOrder) {
+        this.transportOrder = transportOrder;
+    }
+
+
+    private List<String> transportOrder ;
+
+    @XmlElement(name="ERROR")
+    public String getError() {
+        return error;
+    }
+
+    public void setError(String error) {
+        this.error = error;
+    }
+
+
+
+    @XmlElement(name="ACTUALIZACION")
+    public String getUpdate() {
+        return update;
+    }
+
+    public void setUpdate(String update) {
+        this.update = update;
+    }
+
 
 	@XmlElement(name="VIAJE",type = Trip.class)
 	public Trip getTrip() {
@@ -55,7 +89,7 @@ public class Response {
 		this.stop = stop;
 	}
 
-	
+
 	
 	
 	
