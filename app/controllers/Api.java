@@ -11,7 +11,6 @@ import play.Logger;
 import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
-import util.ProxyAuthenticator;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -20,7 +19,6 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.Authenticator;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -30,11 +28,9 @@ import java.net.URL;
  */
 public class Api extends Controller {
 
+    // TODO
+    // Only for demonstration
     public static Result trip(){
-
-        Authenticator.setDefault(new ProxyAuthenticator("ben-brahim.a", "eLdorado1"));
-		System.getProperties().put("http.proxyHost", "proxy.stef-tfe.fr");
-		System.getProperties().put("http.proxyPort", "9090");
 
         URL localhost;
         Response response=new Response();
@@ -81,9 +77,9 @@ public class Api extends Controller {
             // Unmarshaling XML Request
 
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(b);
-            Logger.debug("Available 01 "+byteArrayInputStream.available());
             JAXBContext jc = JAXBContext.newInstance(Response.class);
             Unmarshaller u = jc.createUnmarshaller();
+
             if(byteArrayInputStream.available()>39)
             response = (Response) u.unmarshal(byteArrayInputStream);
 
