@@ -1,1 +1,1 @@
-web:  target/universal/stage/bin/perio -Dconfig.file=conf/application.conf -Dhttp.port=$PORT
+web:  target/universal/stage/bin/moulinette -Dconfig.file=conf/application.conf -Dhttp.port=$PORT
